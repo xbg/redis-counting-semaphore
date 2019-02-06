@@ -199,7 +199,7 @@ class Semaphore {
 
 		$end = time() + $acquire_timeout;
 		while (time() < $end) {
-			$res = $this->client->setnx('lock:' . $this->name, $identifier);
+			$res = $this->client->set('lock:' . $this->name, $identifier, 'EX', $this->timeout, 'NX');
 			if ($res) {
 				return $identifier;
 			}
