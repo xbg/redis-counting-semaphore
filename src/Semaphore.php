@@ -63,7 +63,7 @@ class Semaphore {
 			}
 
 			$retries -= 1;
-			sleep($sleep);
+			$this->sleep_seconds($sleep);
 		}
 		return false;
 	}
@@ -203,7 +203,7 @@ class Semaphore {
 			if ($res) {
 				return $identifier;
 			}
-			sleep(0.001);
+			$this->sleep_seconds(0.001);
 		}
 		return false;
 	}
@@ -226,4 +226,10 @@ class Semaphore {
 	}
 	//</editor-fold>
 
+	/**
+	 * @param float $seconds
+	 */
+	private function sleep_seconds($seconds) {
+		usleep($seconds * 1000000);
+	}
 }

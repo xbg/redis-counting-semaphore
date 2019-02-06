@@ -1,5 +1,5 @@
 {
-	"name": "code-orange/redis-counting-semaphore",
+	"name": "xbg/redis-counting-semaphore",
 	"description": "Distributed counting semaphore implementation for redis",
 	"type": "library",
 	"license": "Apache-2.0",
